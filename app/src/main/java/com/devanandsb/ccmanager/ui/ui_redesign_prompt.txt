@@ -1,0 +1,160 @@
+**App Overview & Visual Identity**
+The app is a premium, secure credit card manager and statement tracker. The current UI heavily leans into a modern, iOS-inspired, ultra-fluid aesthetic. It uses smooth 120Hz cubic-bezier transitions (iOS quint-out slides with soft parallax fades), heavy use of rounded corners (squircle-like shapes, e.g., 20dp and 28dp radius), frosted glass (translucent) effects on toolbars, and drop shadows for depth. The app functions entirely securely on-device, often referring to itself as a "Private Vault".
+
+**Global Layout & Navigation**
+- **Edge-to-Edge:** The app draws under the system status bar and navigation bar.
+- **Top Bars:** The app uses shared, frosted/translucent top app bars that stay pinned at the top while content scrolls underneath.
+- **Bottom Navigation:** A floating "PillNavBar" sits at the bottom center of the screen, hovering above the content. It contains tabs for switching between "Cards" (Home) and "Activity".
+- **Typography:** Uses Material 3 typography with specific font weights (ExtraBold for titles, SemiBold for headers, tabular numbers for currency).
+
+---
+
+### SCREEN 1: HOME (Cards Tab)
+A pure, smooth vertical scroll feed displaying full card designs edge-to-edge.
+
+**1. Home Top Header**
+- **Left Side:** A circular App Logo Badge (38dp). Next to it, a two-line title:
+  - Top Line: "PRIVATE VAULT" in very small, widely tracked, semi-bold primary-colored text (9.5sp, 1.6sp letter spacing).
+  - Bottom Line: The Owner's Name in a large, ExtraBold font, truncated with an ellipsis if too long.
+- **Right Side (Actions):**
+  - A circular Settings button (38dp) with a subtle transparent border (white/black 10% opacity) and an outlined Settings gear icon (18dp).
+  - A filled circular primary-colored "Add" FAB (38dp) with a heavy colored drop-shadow (45% opacity) containing a plus icon.
+
+**2. Wealth Editorial Header (If credit cards exist)**
+- **Left Column:**
+  - "TOTAL OUTSTANDING" label (small, tracked out, muted text).
+  - Total amount in INR formatted with commas, in a massive tabular display font.
+  - Below this, an "Urgency Pill" (if a bill is due): A rounded pill with a colored background (Red/Danger for <2 days, Amber/Warning for <5 days, Primary for normal). It contains a small colored dot, and text like "Next: [Card Nickname] · Due [Date]".
+- **Right Column (Utilization Gauge):**
+  - A circular canvas (64dp) with a 6dp stroke. It draws a subtle track ring, and an overlapping brightly colored progress arc showing credit limit utilization.
+  - In the exact center of the ring, bold text showing the percentage (e.g., "15%").
+
+**3. Card Category Filter**
+- A segmented pill bar (horizontal row of selectable rounded buttons) filtering by "All", "Credit", "Debit", etc.
+- The selected pill has a solid background; unselected pills are transparent with subtle borders.
+
+**4. Card Feed (Vertical List of Cards)**
+- The cards are rendered as realistic, physical-looking cards.
+- They span the full width minus a standard gutter margin (horizontal padding).
+- **Card Design Elements:**
+  - Rich gradients or solid colors depending on the issuer.
+  - Top-left: Bank Badge logo.
+  - Top-right: Payment Network logo (Visa, Mastercard, RuPay, Amex).
+  - Left side: A metallic EMV Chip icon and a Wi-Fi-style Contactless icon.
+  - Bottom-left: The cardholder name and a masked card number (e.g., "•••• 4321") in an embossed or glassmorphic monospaced font.
+- Long-pressing a card triggers haptic feedback and opens a Bottom Sheet.
+
+**5. Upcoming Bills Carousel (Bottom of Home Screen)**
+- **Title:** "Upcoming bills" aligned left.
+- **Carousel:** A horizontal scrolling list of cards due soon.
+- **Carousel Card Item:**
+  - Width: 214dp, highly rounded corners (20dp).
+  - Background: Surface color with a subtle vertical gradient.
+  - Border: 0.75dp border tinted to the urgency color (Red, Amber, or Primary).
+  - Top Row: Bank badge (30dp) on the left, and a "Status Pill" (e.g., "Overdue", "Due today", "5d left") on the right.
+  - Middle: Outstanding amount in bold tabular text.
+  - Bottom: Card nickname and the due date colored in the urgency accent.
+
+**6. Empty Vault Stage (Shown if no cards exist)**
+- An illustration/blueprint of a card with a badge "STORED ONLY ON YOUR PHONE".
+- Title: "Welcome, [Name]. Add your first card."
+- Subtitle: "See due dates clearly, read monthly statements, and keep card numbers locked on your device."
+- A grid/flow row of feature pills: "Offline vault", "Bill reminders", "Statement reader", "One-tap reveal".
+
+---
+
+### SCREEN 2: ACTIVITY (Transactions Tab)
+A feed of all transactions synced from emails, PDFs, or manually entered.
+
+**1. Activity Top Header**
+- **Left Side:** Large bold title "Activity".
+- **Right Side:** A unified, Apple-style frosted pill toolbar (38dp height, fully rounded borders).
+  - Contains three touch targets separated by tiny vertical dividers:
+    1. Search Icon (toggles search bar).
+    2. Refresh/Sync Icon (spins when syncing mail).
+    3. Three-dot Menu Icon (opens dropdown for "Import statement PDF", "Email statements", "Export this month").
+
+**2. Slim Action Banners (Alerts)**
+- Displayed just below the header if there are warnings (e.g., statements need review).
+- A slim, colored pill with an icon on the left (e.g., Receipt or Warning), a title string, and a small action text ("Review" or "Fix") on the right.
+
+**3. Month Switcher & Filter Controls**
+- **Left Pill (Month Switcher):** A rounded pill containing a Left Arrow, the current Month/Year text (e.g., "Nov 2023"), and a Right Arrow.
+- **Right Pill (Filter):** A pill containing a Filter icon with a notification badge showing the number of active filters, and the text "Filter". Clicking it opens a Bottom Sheet to filter by specific Cards or Spend Categories.
+
+**4. Spend Summary & Visual Card Switcher**
+- A horizontally scrolling row showing summary cards.
+- Displays total spent for the month, broken down by category (e.g., Dining, Travel), showing amounts and color-coded dots.
+
+**5. Transaction Feed (Grouped by Date)**
+- **Date Header:** Text like "Today", "Yesterday", or "Nov 15". On the far right of the header, the total amount spent on that day is displayed in muted text.
+- **Transaction Cards:** Grouped inside a rounded surface (18dp radius) with a subtle border.
+  - Multiple transactions on the same day are stacked inside this surface, separated by ultra-thin horizontal dividers (0.5dp) that are indented 68dp from the left (to align with text, bypassing the icon).
+- **Transaction Row:**
+  - **Left:** A category icon (e.g., fork/knife for dining) inside a colored rounded rectangle or circle.
+  - **Center:**
+    - Top line: Merchant Name (e.g., "Starbucks") in medium bold text.
+    - Bottom line: The Card Nickname used, or the statement context (small, muted text).
+  - **Right:** The transaction amount. Debits (spending) are standard text; Credits (payments/refunds) are tinted Green with a '+' sign.
+
+---
+
+### SCREEN 3: CARD DETAILS (Detail Screen)
+A focused view of a single card, accessed by tapping a card on the Home screen.
+
+**1. Ambient Top Gradient Aura**
+- Behind the top app bar, a tall, soft gradient (340dp height) fades from the card's dominant color at the top to transparent at the bottom. This resembles the Apple Wallet or Revolut card aura, giving the page a unique tinted glow based on the specific card's artwork.
+
+**2. Top App Bar**
+- **Background:** Completely transparent to let the ambient aura show through.
+- **Left Side:** A circular "Back" button (40dp) with a frosted, slightly translucent background (surfaceContainerHigh at 88% alpha) and a subtle border. Contains a left arrow icon.
+- **Right Side:** A unified frosted pill (40dp height) containing two touch targets separated by a tiny vertical divider:
+  1. Edit Icon (opens edit screen).
+  2. Three-dot Menu Icon (opens dropdown for "Pin to stack", "Archive card", "Update balance", "Delete card").
+
+**3. Interactive Card Element**
+- A large, realistic representation of the credit card centered on the screen (the same physical card design seen on the Home screen).
+- **Security & Micro-Interactions:** The card is interactive. If the user tilts the physical device (detected via gyroscope/accelerometer) or taps the reveal button, the card physically flips in 3D to reveal sensitive details (full card number, CVV, expiry date).
+- **Hint Text:** Small muted text directly below the card: "Tap Reveal to flip directly · Slant left or right to flip".
+
+**4. Full-Width Frosted Bento Action Dock**
+- Located below the card hint text. A horizontal row of 2 or 3 rounded, frosted tiles (ActionDockTiles) that stretch to fill the width.
+  - **Tile 1 (Security):** "Reveal" (Icon: Fingerprint) / "Hide" (Icon: Eye slashed). Subtitle says "Number & CVV" or "Locked".
+  - **Tile 2 (Payment, if credit):** "Mark paid" (Icon: Check Circle). Subtitle shows due date (e.g., "Oct 15") or "Pending due".
+  - **Tile 3 (Statements, if credit):** "Statements" (Icon: Receipt). Subtitle shows the count (e.g., "12 saved").
+
+**5. Alert / Warning Panels (Contextual)**
+- Displayed below the dock if action is needed. Rounded panels (standard surface/border) containing a title, text, and primary/tonal buttons.
+- Example: "Pending to pay" displaying the outstanding amount in large primary-colored text, a description, and two buttons ("Mark as paid", "Add due date").
+
+**6. Bento Information Panels**
+The remainder of the screen consists of grouped information presented in rounded panels (Bento box style) separated by section headers.
+- **Rewards Section:** (If applicable) Two side-by-side rounded panels showing "Points balance" and "Cashback".
+- **Billing / Card Info Section:**
+  - Row 1: Side-by-side panels showing "Statement" (e.g., "15th of month") and "Due" (e.g., "5 days later").
+  - Row 2: Side-by-side panels showing "Reminders" (e.g., "3 days before") and "Network" (Displaying the Visa/Mastercard logo).
+- **Statements List:** A rounded surface containing a list of the last 12 statements. Each row has a receipt icon, Date, Due Date, Amount, and a right-chevron indicating it's clickable. Rows are separated by ultra-thin dividers.
+- **Payments List:** Similar to statements, showing payment history with a green checkmark icon.
+
+---
+
+### BOTTOM SHEETS & MODALS
+
+**1. Card Action Bottom Sheet (Triggered by long-pressing a card on Home)**
+- **Header:** Bank Badge on the left, Card Nickname and "Issuer · •• Last4" on the right.
+- **Actions List:** A vertical list of rows, each containing an Icon on the left, a Title, and an optional Subtitle. Separated by thin dividers.
+  - "Open card" (Icon: External link)
+  - "Pin to top" (Icon: Push pin) - includes subtitle explaining behavior.
+  - "Edit details" (Icon: Pencil)
+
+**2. Filter Bottom Sheet (Triggered from Activity Screen)**
+- **Header:** "Filter" title and a "Clear all" text button.
+- **Cards Section:** A wrapping flow grid of "Tonal Choice Pills". Each pill contains the card's nickname, last 4 digits, and a colored dot matching the card's theme.
+- **Categories Section:** A wrapping flow grid of pills for categories (Food, Transport, Utilities) with their respective colored dots.
+- **Bottom:** A large, sticky circular Button spanning the full width: "Show [X] transactions".
+
+**3. Transaction Edit Bottom Sheet**
+- Displays full transaction details (Amount, Exact Date/Time, Merchant, Raw SMS/Email text).
+- Allows the user to select a new category from a grid.
+- Contains a text field to add a custom note.
+- A "Save" button and a "Delete" button (Outlined red circular button).

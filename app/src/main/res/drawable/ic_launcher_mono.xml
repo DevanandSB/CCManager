@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="54"
+        android:pivotY="54">
+        <group>
+            <clip-path android:pathData="M0,0H108V108H0Z M31,39 H77 A6,6 0 0,1 83,45 V69 A6,6 0 0,1 77,75 H31 A6,6 0 0,1 25,69 V45 A6,6 0 0,1 31,39 Z" />
+            <group android:pivotX="54" android:pivotY="54" android:rotation="-12" android:translateY="-4">
+                <path android:fillColor="#FFFFFFFF"
+                    android:pathData="M30,36 H78 A5,5 0 0,1 83,41 V63 A5,5 0 0,1 78,68 H30 A5,5 0 0,1 25,63 V41 A5,5 0 0,1 30,36 Z" />
+            </group>
+        </group>
+        <group android:pivotX="54" android:pivotY="55" android:rotation="3" android:translateY="2">
+            <path android:fillColor="#FFFFFFFF" android:fillType="evenOdd"
+                android:pathData="M31,39 H77 A5,5 0 0,1 82,44 V68 A5,5 0 0,1 77,73 H31 A5,5 0 0,1 26,68 V44 A5,5 0 0,1 31,39 Z
+                    M34.5,48.5 H42.5 A1.5,1.5 0 0,1 44,50 V55 A1.5,1.5 0 0,1 42.5,56.5 H34.5 A1.5,1.5 0 0,1 33,55 V50 A1.5,1.5 0 0,1 34.5,48.5 Z
+                    M34.5,63.5 H47.5 A1.3,1.3 0 0,1 48.8,64.8 A1.3,1.3 0 0,1 47.5,66.1 H34.5 A1.3,1.3 0 0,1 33.2,64.8 A1.3,1.3 0 0,1 34.5,63.5 Z
+                    M70,64.5 m-4.5,0 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0" />
+        </group>
+    </group>
+</vector>

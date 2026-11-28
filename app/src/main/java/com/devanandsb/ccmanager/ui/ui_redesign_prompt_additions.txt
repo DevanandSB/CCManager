@@ -1,0 +1,66 @@
+### ADDITIONAL UI COMPONENTS & MICRO-INTERACTIONS FOR REDESIGN
+
+---
+
+### SCREEN 3: ADD/EDIT CARD (EditScreen)
+A detailed data-entry screen with a live, 3D-effect miniature card preview.
+
+**1. Live Miniature Preview (Top of screen)**
+- **Box Dimensions:** Full width, 112dp height, 22dp rounded corners.
+- **Style:** Frosted, glassmorphic container with a heavy drop shadow (14dp elevation). It displays the currently selected Bank/Network colors and logos dynamically as the user types.
+- Tapping this preview opens a bottom sheet to customize the "Design" (card art).
+
+**2. Quick Input Actions**
+- Below the preview, two primary outlined tiles side-by-side:
+  - "Scan card" (Camera icon)
+  - "Tap card (NFC)" (Contactless icon)
+
+**3. Data Entry Panels**
+- Grouped into "Panels" (surface color, rounded corners) with section headers (e.g., "1. Card details", "2. Statement & Due date").
+- **Inputs:** Uses standard Material 3 OutlinedTextFields.
+- **Card Number Field:** Auto-formats with spaces. A Network Logo (Visa, MC) appears dynamically inside the trailing edge as soon as the BIN is recognized.
+
+---
+
+### MODAL: SCAN CARD OVERLAY (Camera / ML Kit)
+A dark, immersive camera UI that mimics premium wallet apps (like Apple Pay or Google Wallet) when scanning a card.
+
+**1. Camera Viewport & Controls**
+- A full-screen camera preview (`AndroidView`).
+- **Top Left:** A circular frosted close button.
+- **Top Right (if Flash available):** A circular frosted flash toggle button.
+
+**2. Scanning Reticle (The "Lock-On" Frame)**
+- Placed in the center of the screen, adhering to a standard credit card aspect ratio (CARD_RATIO ~1.58).
+- Highly rounded corners (22dp).
+- **Idle State:** A white, semi-transparent border (25% opacity) with a pulsing "laser" line sweeping up and down inside the frame to indicate scanning.
+- **Locking State:** When ML Kit detects a number, the frame turns Green (Good) and opacity increases to 55%.
+- **Custom Drawn Brackets:** Four custom-drawn corner brackets frame the card, independent of the border.
+
+**3. Scan Success Animation (The "Paytm/GPay" burst)**
+- When successful, the camera view dissolves into a solid background.
+- A bold "Verified/Check" animation plays: an expanding concentric emerald ripple.
+- A 3D rendered card (the scanned result) springs into view from a tilted angle, performs a fast metallic sheen/gloss sweep across its surface, and settles completely flat.
+
+---
+
+### SCREEN 4: LOCK SCREEN & SECURITY SPLASH
+
+**1. Initial Splash Overlay (1-second luxury 3D intro)**
+- Background: Imperial Midnight (Deep navy/black) with a subtle radial glow in the center.
+- A 3D Imperial credit card (deep blues and silvers) scales in, rotates on the X/Y axis, and plays a liquid metallic foil gleam across its surface.
+- Typography: "CC MANAGER" fades in below the card with wide letter spacing (5sp) and a tiny expanding horizontal divider.
+
+**2. Lock Screen (Biometric Prompt Cover)**
+- **Background:** Material Background color with a massive radial gradient (Primary color at 16% opacity fading to transparent) originating from the center.
+- **Centerpiece Icon:**
+  - A nested set of circular shapes.
+  - Outer ring: 136dp, primary color (8% opacity), 0.8dp border.
+  - Inner ring: 94dp, primary linear gradient, containing a large `Fingerprint` icon.
+- **Text:** "CC Manager is locked" in HeadlineMedium ExtraBold. Subtext explaining to use fingerprint/face.
+- **Button:** A wide circular pill button at the bottom labeled "Unlock".
+
+**3. Vault Security Modal (Triggered by tapping the logo on Home)**
+- A luxury dark-mode modal showcasing the "Air-Gapped Silicon Fortress" concept.
+- **Center Graphic:** An animated pulsing ring around a 3D-styled fingerprint core.
+- **Pillars:** Below the intro text, dark rounded rectangles (Color 0xFF161B36) detail the security features ("Completely Offline", "Locked with Your Fingerprint"). Each has a glowing tinted icon on the left.

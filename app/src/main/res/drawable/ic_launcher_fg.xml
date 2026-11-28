@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Subtle Imperial glow card tilted behind main titanium card -->
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:rotation="-12"
+        android:translateY="-4">
+        <path android:pathData="M30,36 H78 A5,5 0 0,1 83,41 V63 A5,5 0 0,1 78,68 H30 A5,5 0 0,1 25,63 V41 A5,5 0 0,1 30,36 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="25"
+                    android:startY="36"
+                    android:endX="83"
+                    android:endY="68">
+                    <item android:offset="0.0" android:color="#FF8F9CFF" />
+                    <item android:offset="1.0" android:color="#FF4C59D9" />
+                </gradient>
+            </aapt:attr>
+        </path>
+    </group>
+
+    <!-- Primary Velvet Imperial Credit Card centered inside adaptive safe zone -->
+    <group
+        android:pivotX="54"
+        android:pivotY="55"
+        android:rotation="3"
+        android:translateY="2">
+
+        <!-- Card metallic base -->
+        <path android:pathData="M31,39 H77 A5,5 0 0,1 82,44 V68 A5,5 0 0,1 77,73 H31 A5,5 0 0,1 26,68 V44 A5,5 0 0,1 31,39 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="26"
+                    android:startY="39"
+                    android:endX="82"
+                    android:endY="73">
+                    <item android:offset="0.0" android:color="#FF242B5B" />
+                    <item android:offset="0.55" android:color="#FF131736" />
+                    <item android:offset="1.0" android:color="#FF090B1C" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Diagonal liquid metallic sheen across top corner -->
+        <path
+            android:fillColor="#22FFFFFF"
+            android:pathData="M31,39 H59 L42,73 H31 A5,5 0 0,1 26,68 V44 A5,5 0 0,1 31,39 Z" />
+
+        <!-- Specular rim stroke -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeWidth="1.2"
+            android:pathData="M31,39 H77 A5,5 0 0,1 82,44 V68 A5,5 0 0,1 77,73 H31 A5,5 0 0,1 26,68 V44 A5,5 0 0,1 31,39 Z">
+            <aapt:attr name="android:strokeColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="26"
+                    android:startY="39"
+                    android:endX="82"
+                    android:endY="73">
+                    <item android:offset="0.0" android:color="#CCCFD6FF" />
+                    <item android:offset="0.5" android:color="#33FFFFFF" />
+                    <item android:offset="1.0" android:color="#887B89FF" />
+                </gradient>
+            </aapt:attr>
+        </path>
+
+        <!-- Brushed Platinum EMV Chip -->
+        <path android:pathData="M34.5,48.5 H42.5 A1.5,1.5 0 0,1 44,50 V55 A1.5,1.5 0 0,1 42.5,56.5 H34.5 A1.5,1.5 0 0,1 33,55 V50 A1.5,1.5 0 0,1 34.5,48.5 Z">
+            <aapt:attr name="android:fillColor">
+                <gradient
+                    android:type="linear"
+                    android:startX="33"
+                    android:startY="48.5"
+                    android:endX="44"
+                    android:endY="56.5">
+                    <item android:offset="0.0" android:color="#FFF3F5FF" />
+                    <item android:offset="1.0" android:color="#FFA6B2F5" />
+                </gradient>
+            </aapt:attr>
+        </path>
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#4D10142D"
+            android:strokeWidth="0.7"
+            android:pathData="M33,52.5 H36.5 M40.5,52.5 H44 M38.5,48.5 V56.5" />
+
+        <!-- Subtle masked digit bar -->
+        <path
+            android:fillColor="#D8E8ECFF"
+            android:pathData="M34.5,63.5 H47.5 A1.3,1.3 0 0,1 48.8,64.8 V64.8 A1.3,1.3 0 0,1 47.5,66.1 H34.5 A1.3,1.3 0 0,1 33.2,64.8 V64.8 A1.3,1.3 0 0,1 34.5,63.5 Z" />
+
+        <!-- Overlapping Imperial + Pearl spheres emblem -->
+        <path
+            android:fillColor="#FF7B89FF"
+            android:pathData="M67.5,64.5 m-4.2,0 a4.2,4.2 0 1,0 8.4,0 a4.2,4.2 0 1,0 -8.4,0" />
+        <path
+            android:fillColor="#DDF4F6FF"
+            android:pathData="M72.5,64.5 m-4.2,0 a4.2,4.2 0 1,0 8.4,0 a4.2,4.2 0 1,0 -8.4,0" />
+    </group>
+</vector>

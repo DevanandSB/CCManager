@@ -1,0 +1,35 @@
+# Gradle & Kotlin
+.gradle/
+.kotlin/
+build/
+app/build/
+/build
+/captures
+.externalNativeBuild
+.cxx
+
+# IDE & OS
+.idea/
+*.iml
+.claude/
+.DS_Store
+**/.DS_Store
+
+# Environment & Secrets (keep .env.example committed)
+.env
+.env.*
+!.env.example
+local.properties
+/local.properties
+keystore.properties
+*.keystore
+release.keystore
+*.jks
+*.p12
+*.pem
+*.key
+
+# Local developer helper scripts & private test PDFs/dumps
+build.ps1
+sample_pdfs/
+sample_dumps/

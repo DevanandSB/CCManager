@@ -1,0 +1,73 @@
+### ADDITIONAL UI COMPONENTS & MICRO-INTERACTIONS FOR REDESIGN (PART 2)
+
+---
+
+### SCREEN 5: FIRST TIME INTRO SCREEN (OnboardingScreen)
+A multi-page horizontal scrolling introduction showcasing features before users add their first card.
+
+**1. Architectural Top Bar**
+- **Left:** App Logo Badge (circular, 34dp).
+- **Middle (Segmented Progress Rail):** A row of horizontal track bars (one for each page) indicating current progress. Incomplete bars are dark/transparent; completed bars animate with a solid primary color fill.
+- **Right:** A "Skip" button (frosted circle with text) on earlier pages. On the final page, it hides.
+
+**2. Background Style**
+- Radial gradient orbs in the background (one Primary colored orb top-right, one Deep Indigo orb bottom-left), blending softly into the dark/light background.
+
+**3. Pages (Horizontal Pager)**
+- **Page 1 (WelcomePage):**
+  - **Visual (VaultDeckShowcase):** An animated 3D composition of three credit cards floating in space. Two are in the background (Platinum and Obsidian-Coral, slightly angled, muted opacity), and the main Imperial flagship card is centered and prominently scaled in front. The cards gently drift up and down (`drift` animation) simulating zero-gravity.
+  - **Text:** "Private Vault · CC Manager" (Kicker). "Every card, one quiet place." (Headline).
+  - **Bento Grid:** Below the text, an asymmetric 2x1 bento grid:
+    - Two square cards side-by-side: "Fingerprint lock" & "Due alerts".
+    - One wide card spanning full width below: "Statements & simple spend view".
+- **Page 2 (RemindersPage):**
+  - **Visual (DueRadarVisual):** A sweeping radar arc above a "Smart Alert" card. The alert card mimics a notification ("Amazon Pay due in 3 days"). A pulsing circle draws attention to a radar node.
+  - **Text:** "Smart Due Radar". "Never pay a late fee again."
+  - **Actions (Permission Capsules):** Two large, rounded interactive rows to request permissions ("Bill notifications" and "Exact timing"). Each has an icon, text, and an "Enable" button that turns into a green "Ready" pill when granted.
+
+**4. Bottom CTA Rail**
+- **Left:** Simple page count (e.g., "1 / 3").
+- **Right:** A primary colored FAB/Pill with text "Next" and a right arrow. Casts a heavy colored shadow.
+
+---
+
+### SCREEN 6: EMPTY CARD HOME PAGE (EmptyVaultStage in HomeScreen)
+This state is shown on the Home screen when the user has completed onboarding but hasn't added any cards yet.
+
+**1. Blueprint Visual**
+- A large, animated "Blueprint" graphic of a credit card at a slight angle.
+- It features a translucent silhouette behind a dark, frosted glass main card.
+- A sweeping line animation (`blueprintSweep`) scans horizontally across the card, highlighting precise "engineering" brackets at the corners and a central emblem.
+
+**2. Welcome Text**
+- Headline: "Welcome, [Name]. Add your first card." (ExtraBold).
+- Subtitle: Explains the core value proposition (due dates, statement reader, locked on device).
+
+**3. Call To Action & Features**
+- **CardLaunchpadDock:** The primary action area to start adding a card (options to Scan, Tap, or Type).
+- **Feature Pills (Bottom):** A wrapping row of small, pill-shaped tags emphasizing benefits: "Offline vault", "Bill reminders", "Statement reader", "One-tap reveal". They have a frosted, subtle background and thin borders.
+
+---
+
+### SCREEN 7: GOOGLE APP PASSWORD & SECURITY PAGE (PasswordsScreen)
+A secure settings screen dedicated to managing PDF statement passwords and personal info used for unlocking statements.
+
+**1. Biometric Lock Cover (If accessed while locked)**
+- Before revealing passwords, the screen displays a locked state.
+- **Center:** A large Lock icon inside a primary-colored circle.
+- **Text:** "Protected by device security" and a prompt to use fingerprint/face unlock.
+- **Actions:** "Back" (outlined) and "Unlock" (filled).
+
+**2. Secure Warning Banner (Top of content)**
+- If the device is secure, a Green (Good) tinted rounded surface explains that data is hardware-encrypted with Android Keystore.
+- If insecure, an Amber (Warning) tinted surface warns the user to set a screen lock.
+
+**3. Personal Details Panel**
+- A rounded panel containing input fields necessary for guessing PDF passwords.
+- **Fields:** "Name as on card", "Date of birth" (DatePicker), "PAN", and "Mobile".
+- **Masking:** PAN and Mobile fields use password masking (dots) by default. They include a trailing "eye" icon to toggle visibility, mimicking standard password fields.
+
+**4. Extra Patterns & Remembered Passwords**
+- **Extra Patterns:** A multi-line text field allowing users to input custom password formats (e.g., `{PAN4}{DOB_DD}`). Masked by default.
+- **Remembered Passwords Panel:** A list of literal passwords the app has learned/saved.
+- **List Item:** Shows a Key icon, the masked password (e.g., "••••••"), and trailing action icons for "Reveal" (eye) and "Forget/Delete" (trash can).

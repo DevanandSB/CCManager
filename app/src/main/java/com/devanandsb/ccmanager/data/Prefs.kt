@@ -1,0 +1,54 @@
+package com.devanandsb.ccmanager.data
+
+import android.content.Context
+import androidx.core.content.edit
+
+class Prefs(context: Context) {
+    private val sp = context.getSharedPreferences("duely_settings", Context.MODE_PRIVATE)
+
+    /** Seconds in background before the app locks again. 0 = immediately. */
+    var lockTimeoutSec: Int
+        get() = sp.getInt("lock_timeout", 30)
+        set(v) = sp.edit { putInt("lock_timeout", v) }
+
+    /** Whether fingerprint / device lock is required when opening the app. */
+    var appLockEnabled: Boolean
+        get() = sp.getBoolean("app_lock_enabled", true)
+        set(v) = sp.edit { putBoolean("app_lock_enabled", v) }
+
+    var defaultLeads: String
+        get() = sp.getString("default_leads", "5,2,0") ?: "5,2,0"
+        set(v) = sp.edit { putString("default_leads", v) }
+
+    /** Parser generation the stored statements were last refreshed with (see Ledger.PARSER_VERSION). */
+    var parserVersion: Int
+        get() = sp.getInt("parser_version", 1)
+        set(v) = sp.edit { putInt("parser_version", v) }
+
+    /** The first-run screens were finished or skipped (or the app already had cards). */
+    var onboarded: Boolean
+        get() = sp.getBoolean("onboarded", false)
+        set(v) = sp.edit { putBoolean("onboarded", v) }
+
+    /** Whether [onboarded] was ever written (it wasn't on installs from before onboarding existed). */
+    val onboardedKnown: Boolean get() = sp.contains("onboarded")
+
+    var askedNotifications: Boolean
+        get() = sp.getBoolean("asked_notif", false)
+        set(v) = sp.edit { putBoolean("asked_notif", v) }
+
+    /** Colour palette id (see com.devanandsb.ccmanager.ui.Palettes). */
+    var palette: String
+        get() = sp.getString("palette", "indigo") ?: "indigo"
+        set(v) = sp.edit { putString("palette", v) }
+
+    /** "system", "light" or "dark". */
+    var themeMode: String
+        get() = sp.getString("theme_mode", "system") ?: "system"
+        set(v) = sp.edit { putString("theme_mode", v) }
+
+    /** When the last backup file was saved (0 = never). */
+    var lastBackupAt: Long
+        get() = sp.getLong("last_backup_at", 0L)
+        set(v) = sp.edit { putLong("last_backup_at", v) }
+}
